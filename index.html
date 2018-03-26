@@ -269,7 +269,7 @@ function login() {
 }
 
 function authCallback(event){
-    alert(event.origin);
+    log(event.origin);
     if (event.origin !== "https://lains.me") {
         return;
     }
@@ -406,8 +406,8 @@ function handleTrackUpload() {
     if (trackTotal > 0) {
         $('#progressBar').show();
         globalStep = "Uploading tracks";
-        handleSavedRequests(savedQueue, function () {
-            handlePlaylistRequests(playlistQueue, function () {
+        handleSavedRequests(savedQueue.reverse(), function () {
+            handlePlaylistRequests(playlistQueue.reverse(), function () {
                 globalStep = "Finished uploading";
                 trackTotal = trackStep;
                 isImporting = false;
@@ -586,12 +586,7 @@ function bindControls() {
         $('#pnlImport').show();
     });
     $('#btnExport').click(function () {
-        var reverse = [];
-        var lenght = collections.lenght;
-        for(var i = length-1;i>=0;i--){
-            reverse.push(collections[i]);
-        }
-        var json = JSON.stringify(reverse);
+        var json = JSON.stringify(collections);
         var d = new Date();
         var time = '@' + d.getFullYear() + '_' + (d.getMonth() + 1) + '_' + d.getDate();
         download(name+time+'.json', json);
