@@ -388,7 +388,7 @@ function compareEverything() {
                 // compare other playlists
                 var playlistNames = _.keys(importColl.playlists);
                 globalStep = "Comparing custom playlists";
-                handlePlaylistCompare(playlistNames, function () {
+                handlePlaylistCompare(playlistNames.reverse(), function () {
                     handleTrackUpload();
                 });
             });
