@@ -256,7 +256,7 @@ function login() {
 
     var set = {
       client_id: '[YOUR_CLIENT_TOKEN_HERE]',
-      redirect_uri: 'http://www.spotmybackup.com/login.html',
+      redirect_uri: 'http://lains.me/SpotMyBackup/login.html',
       scope: 'playlist-read playlist-read-private playlist-modify-public playlist-modify-private user-library-read user-library-modify',
       response_type: 'token',
       show_dialog: 'true'
@@ -269,7 +269,7 @@ function login() {
 }
 
 function authCallback(event){
-    if (event.origin !== "http://www.spotmybackup.com") {
+    if (event.origin !== "http://lains.me/SpotMyBackup") {
         return;
     }
     if (authWindow) {
