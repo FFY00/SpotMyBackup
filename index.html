@@ -269,6 +269,7 @@ function login() {
 }
 
 function authCallback(event){
+    alert(event.origin);
     if (event.origin !== "https://lains.me") {
         return;
     }
