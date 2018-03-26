@@ -269,7 +269,7 @@ function login() {
 }
 
 function authCallback(event){
-    log(event.origin);
+    console.log(event.origin);
     if (event.origin !== "https://lains.me") {
         return;
     }
